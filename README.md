@@ -1,5 +1,7 @@
 # RYZE Digital Dialog
 
+![Run linter(s) workflow status](https://github.com/ryze-digital/dialog/actions/workflows/run-lint.yml/badge.svg)
+
 ## Install
 
 ```sh

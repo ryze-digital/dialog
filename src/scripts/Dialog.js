@@ -6,11 +6,11 @@ import * as adventure from '@adventure/js-utilities';
 export class Dialog extends adventure.Base {
     /**
      *
-     * @param {Object} options
-     * @param {HTMLDialogElement} [options.el=document.querySelector('[data-dialog]')]
-     * @param {Boolean} [options.modal=true]
+     * @param {object} options
+     * @param {HTMLDialogElement} [options.el]
+     * @param {boolean} [options.modal]
      */
-    constructor (options = {}) {
+    constructor(options = {}) {
         const el = document.querySelector('[data-dialog]');
 
         if (el.hasAttribute('open')) {
@@ -25,12 +25,13 @@ export class Dialog extends adventure.Base {
         this.openTriggers = document.querySelectorAll(`[data-open-dialog="${this.options.el.id}"]`);
         this.closeButton = this.options.el.querySelector('[data-close-dialog]');
     }
+
     /**
      *
-     * @method init
+     * @function init
      * @public
      */
-    init () {
+    init() {
         this.openTriggers.forEach((trigger) => {
             trigger.addEventListener('click', (event) => {
                 event.preventDefault();
@@ -42,13 +43,14 @@ export class Dialog extends adventure.Base {
             this.closeButton.addEventListener('click', this.close.bind(this));
         }
     }
+
     /**
      *
-     * @method open
+     * @function open
      * @fires Dialog#open
      * @public
      */
-    open () {
+    open() {
         if (this.options.modal === true) {
             this.options.el.showModal();
         } else {
@@ -60,14 +62,15 @@ export class Dialog extends adventure.Base {
          */
         this.animateIn().onfinish = this.emitEvent.bind(this, 'open');
     }
+
     /**
      *
      * Startet die Öffnen-Animation des Dialog.
      * Überschreibe diese Methode, wenn andere Öffnen-Animation gewünscht ist.
-     * @method animateIn
+     * @function animateIn
      * @public
      */
-    animateIn () {
+    animateIn() {
         return this.options.el.animate([{
             opacity: 0,
             scale: 0.8
@@ -79,12 +82,13 @@ export class Dialog extends adventure.Base {
             easing: 'cubic-bezier(0.6, 0, 0.4, 1)',
         });
     }
+
     /**
      *
-     * @method close
+     * @function close
      * @public
      */
-    close () {
+    close() {
         this.options.el.close();
     }
 }
