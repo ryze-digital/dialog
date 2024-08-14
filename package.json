@@ -1,6 +1,6 @@
 {
   "name": "@ryze-digital/dialog",
-  "description": "Enhances the <details> tag with styles and animations",
+  "description": "Enhances the <dialog> tag with basic styles and animations",
   "license": "UNLICENSED",
   "version": "0.1.0",
   "author": "RYZE Digital GmbH <kontakt@ryze-digital.de> (https://www.ryze-digital.de/)",
