@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "@adventure/scss-utilities" as adventure;
+@use "@ryze-digital/scss-utilities";
 
 /// Private Variable, die die Dialog Standard-Konfiguration beinhaltet.
 /// Zum Ändern der Konfiguration kann das **configure** Mixin verwendet werden.
@@ -12,8 +12,8 @@
 /// @prop {Number} z-index [null]
 $_config: (
     "padding": (
-        "horizontal": adventure.rem-calc(20px),
-        "vertical": adventure.rem-calc(20px)
+        "horizontal": scss-utilities.rem-calc(20px),
+        "vertical": scss-utilities.rem-calc(20px)
     ),
     "max": (
         "width": 95ch,

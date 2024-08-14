@@ -1,9 +1,9 @@
-import * as adventure from '@adventure/js-utilities';
+import { Base } from '@ryze-digital/js-utilities';
 
 /**
  * Erweitert das dialog-Element um Animationen und Buttons zum Öffnen und Schließen.
  */
-export class Dialog extends adventure.Base {
+export class Dialog extends Base {
     /**
      *
      * @param {object} options
