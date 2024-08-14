@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "@adventure/scss-utilities" as adventure;
+
+/// Private Variable, die die Dialog Standard-Konfiguration beinhaltet.
+/// Zum Ändern der Konfiguration kann das **configure** Mixin verwendet werden.
+/// @access public
+/// @type Map
+/// @prop {Number} padding.horizontal [dventure.rem-calc(20px)] - Horizontaler Innenabstand des Dialogs
+/// @prop {Number} padding.vertical [dventure.rem-calc(20px)] - Vertikaler Innenabstand des Dialogs
+/// @prop {Number} max.width [95ch] - Maximale Breite des Dialogs
+/// @prop {Number} max.height [100%] - Maximale Höhe des Dialogs
+/// @prop {Number} z-index [null]
+$_config: (
+    "padding": (
+        "horizontal": adventure.rem-calc(20px),
+        "vertical": adventure.rem-calc(20px)
+    ),
+    "max": (
+        "width": 95ch,
+        "height": 100%
+    ),
+    "z-index": null
+);
+
+/// Ermöglicht das Konfigurieren der Dialog-Komponente.
+/// @param {Map} $config
+@mixin configure($config) {
+    $_config: map.deep-merge($_config, $config) !global;
+}
+
+/// Ermöglicht Zugriff auf Werte aus der internen Konfiguration.
+/// @param {String} $key
+@function get($key...) {
+    @return map.get($_config, $key...);
+}

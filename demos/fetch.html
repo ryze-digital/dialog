@@ -1,0 +1,47 @@
+<html lang="de">
+<head>
+    <title>Fetch Request Demo - Adventure Dialog</title>
+    <link rel="stylesheet" href="build/demo.css">
+    <meta charset="utf-8">
+</head>
+<body>
+
+<button data-open-dialog="my-dialog">Dialog öffnen</button>
+
+<dialog id="my-dialog" data-dialog>
+    <button data-close-dialog>Dialog schließen</button>
+</dialog>
+
+<script type="module">
+    import {Dialog} from './build/demo.js';
+
+    const dialog = new Dialog();
+    const dialogNode = document.querySelector('dialog');
+    const button = document.querySelector('[data-open-dialog]');
+
+    button.addEventListener('click', () => {
+        fetch('https://dummyjson.com/products')
+            .then((response) => {
+                return response.json();
+            })
+            .then(({products}) => {
+                const ul = document.createElement('ul');
+
+                dialogNode.appendChild(ul);
+
+                products.forEach((product) => {
+                    const li = document.createElement('li');
+
+                    ul.appendChild(li);
+                    li.innerHTML = product.title;
+                });
+
+                dialog.open();
+                dialog.init();
+            });
+    }, {
+        once : true
+    });
+</script>
+</body>
+</html>

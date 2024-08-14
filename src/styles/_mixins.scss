@@ -1,0 +1,36 @@
+@use "config";
+
+/// Fügt für die Funktion benötigte Stile hinzu
+/// @param {Number} $z-index [config.get("z-index")]
+@mixin base($z-index: config.get("z-index")) {
+    border: {
+        style: none;
+    }
+    padding: {
+        top: config.get("padding", "vertical");
+        right: config.get("padding", "horizontal");
+        bottom: config.get("padding", "vertical");
+        left: config.get("padding", "horizontal");
+    }
+    margin: auto;
+    max: {
+        width: calc(#{config.get("max", "width")} - #{config.get("padding", "horizontal") * 2});
+        height: calc(#{config.get("max", "height")} - #{config.get("padding", "vertical") * 2});
+    }
+    z: {
+        index: $z-index;
+    }
+}
+
+/// Gleicht die Darstellung des nicht-modalen an den modalen Dialog an
+@mixin clone-modal-style() {
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    &:not(:modal) {
+        position: fixed;
+        inset: 0;
+        overflow: {
+            x: hidden;
+            y: auto;
+        }
+    }
+}

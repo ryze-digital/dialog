@@ -1,0 +1,48 @@
+<html lang="de">
+<head>
+    <title>Multiple Instances Demo - Adventure Dialog</title>
+    <link rel="stylesheet" href="build/demo.css">
+    <meta charset="utf-8">
+</head>
+<body>
+
+<button data-open-dialog="dialog-1">Dialog 1 öffnen</button>
+<button data-open-dialog="dialog-2">Dialog 2 öffnen</button>
+
+<dialog id="dialog-1" data-dialog>
+    <button data-close-dialog>Dialog schließen</button>
+    <h3>Dialog 1</h3>
+    <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+        sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+        nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+        aliquet nec, vulputate eget, arcu.
+    </p>
+</dialog>
+
+<dialog id="dialog-2" data-dialog>
+    <button data-close-dialog>Dialog schließen</button>
+    <h3>Dialog 2</h3>
+    <p>
+        In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+        Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo
+        ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat
+        a, tellus.
+    </p>
+</dialog>
+
+<script type="module">
+    import {Dialog} from './build/demo.js';
+
+    const dialogsNodes = document.querySelectorAll('dialog');
+
+    dialogsNodes.forEach((dialogNode) => {
+        const dialog = new Dialog({
+            el: dialogNode
+        });
+
+        dialog.init();
+    });
+</script>
+</body>
+</html>

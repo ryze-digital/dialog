@@ -1,0 +1,40 @@
+<html lang="de">
+<head>
+    <title>Confirmation Demo - Adventure Dialog</title>
+    <link rel="stylesheet" href="build/demo.css">
+    <meta charset="utf-8">
+</head>
+<body>
+
+<button data-open-dialog="confirmation">Dialog öffnen</button>
+
+<dialog id="confirmation" data-dialog>
+    <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+        sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+        nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+        aliquet nec, vulputate eget, arcu.
+    </p>
+    <form method="dialog">
+        <button value="yes" autofocus>Ja</button>
+        <button value="no">Nein</button>
+    </form>
+</dialog>
+
+<script type="module">
+    import {Dialog} from './build/demo.js';
+
+    const dialogNode = document.querySelector('dialog');
+    const dialog = new Dialog({
+        el: dialogNode,
+        modal: false
+    });
+
+    dialogNode.addEventListener('close', () => {
+        alert(dialogNode.returnValue);
+    });
+
+    dialog.init();
+</script>
+</body>
+</html>

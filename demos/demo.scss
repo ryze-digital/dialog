@@ -1,0 +1,6 @@
+@use "../index" as dialog;
+
+dialog {
+    @include dialog.base();
+    @include dialog.clone-modal-style();
+}
