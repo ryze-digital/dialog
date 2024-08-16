@@ -68,6 +68,7 @@ export class Dialog extends Base {
      * Startet die Öffnen-Animation des Dialog.
      * Überschreibe diese Methode, wenn andere Öffnen-Animation gewünscht ist.
      * @function animateIn
+     * @returns {Animation}
      * @public
      */
     animateIn() {
