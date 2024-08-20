@@ -10,6 +10,17 @@ npm i @ryze-digital/dialog
 
 ## Usage
 
+### HTML
+
+```html
+<button data-open-dialog="your-dialog-id">Open dialog button label</button>
+
+<dialog id="your-dialog-id" data-dialog>
+    <button data-close-dialog>Close dialog button label</button>
+    Your dialog content
+</dialog>
+```
+
 ### Scss
 
 ```scss
