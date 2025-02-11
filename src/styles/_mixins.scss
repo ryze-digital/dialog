@@ -14,8 +14,14 @@
     }
     margin: auto;
     max: {
-        width: calc(#{config.get("max", "width")} - #{config.get("padding", "horizontal") * 2});
-        height: calc(#{config.get("max", "height")} - #{config.get("padding", "vertical") * 2});
+        width: calc(
+            #{config.get("max", "width")} -
+                #{config.get("padding", "horizontal") * 2}
+        );
+        height: calc(
+            #{config.get("max", "height")} -
+                #{config.get("padding", "vertical") * 2}
+        );
     }
     z: {
         index: $z-index;

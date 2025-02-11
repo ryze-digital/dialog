@@ -13,13 +13,13 @@
 $-config: (
     "padding": (
         "horizontal": scss-utilities.rem-calc(20px),
-        "vertical": scss-utilities.rem-calc(20px)
+        "vertical": scss-utilities.rem-calc(20px),
     ),
     "max": (
         "width": 95ch,
-        "height": 100%
+        "height": 100%,
     ),
-    "z-index": null
+    "z-index": null,
 );
 
 /// Ermöglicht das Konfigurieren der Dialog-Komponente.
