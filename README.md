@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-npm i @ryze-digital/dialog
+npm i @ryze-digital/dialog --save
 ```
 
 ## Usage
