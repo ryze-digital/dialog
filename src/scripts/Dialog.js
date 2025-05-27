@@ -33,14 +33,14 @@ export class Dialog extends Base {
      */
     init() {
         this.openTriggers.forEach((trigger) => {
-            trigger.addEventListener('click', (event) => {
+            this.on(trigger, 'click', (event) => {
                 event.preventDefault();
                 this.open();
             });
-        });
+        })
 
         if (this.closeButton !== null) {
-            this.closeButton.addEventListener('click', this.close.bind(this));
+            this.on(this.closeButton, 'click', this.close.bind(this));
         }
     }
 
@@ -91,5 +91,27 @@ export class Dialog extends Base {
      */
     close() {
         this.options.el.close();
+    }
+
+    /**
+     *
+     * @function destroy
+     * @fires Dialog#beforeDestroy
+     * @fires Dialog#afterDestroy
+     * @public
+     */
+    destroy() {
+        /**
+         * @event Dialog#beforeDestroy
+         */
+        this.emitEvent('beforeDestroy');
+
+        this.close();
+        this.offAll();
+
+        /**
+         * @event Dialog#afterDestroy
+         */
+        this.emitEvent('afterDestroy');
     }
 }
