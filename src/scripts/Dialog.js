@@ -37,7 +37,7 @@ export class Dialog extends Base {
                 event.preventDefault();
                 this.open();
             });
-        })
+        });
 
         if (this.closeButton !== null) {
             this.on(this.closeButton, 'click', this.close.bind(this));
