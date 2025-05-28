@@ -48,7 +48,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Basis-Klasse zur einheitlichen Verwendung von Events und Optionen.
  * Jede Adventure-Komponente leitet von dieser Basis-Klasse ab.
- *
  * @example
  * export class Example extends adventure.Base {
  *     constructor () {
@@ -147,7 +146,7 @@ class Base {
 
     /**
      * @param {string} name
-     * @param {object} [data={}]
+     * @param {object} [data]
      * @param {Element} el
      */
     emitEvent(name = '', data = {}, el = this.options.el) {
@@ -160,7 +159,6 @@ class Base {
 
     /**
      * Fügt einem oder mehreren Elementen ein Event hinzu.
-     *
      * @param {Node|NodeList} selector
      * @param {string} eventName
      * @param {Function} callback
@@ -179,7 +177,6 @@ class Base {
 
     /**
      * Entfernt einem Element oder mehreren Elementen das übergebene Event.
-     *
      * @param {Node|NodeList} selector
      * @param {string} [eventName] - Kann ausgelassen werden, um alle Events zu entfernen.
      */
@@ -217,7 +214,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * Stellt in adventure-scss definierte Breakpoints im JavaScript zur Verfügung
- *
  * @example
  * const {breakpoints} = new adventure.BreakpointProvider();
  *
@@ -281,7 +277,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * Konvertiert ein Date-Objekt zur Verwendung mit input[type="date"] und input[type="time"]
- *
  * @example
  * const dateToInputConverter = new adventure.DateToInputConverter();
  *
@@ -289,7 +284,7 @@ __webpack_require__.r(__webpack_exports__);
  */
 class DateToInputConverter {
     constructor() {
-        // eslint-disable-next-line prefer-rest-params
+         
         this.dateObj = new Date(...arguments);
     }
 
@@ -355,7 +350,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * Setzt Klasse während ein Element "sticky" ist
- *
  * @see https://davidwalsh.name/detect-sticky
  * @example
  * const element = document.getElementById('id');
@@ -409,7 +403,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * Verifiziert ein Fonts.net Projekt asynchron
- *
  * @example
  * new adventure.FontVerification('your fonts.net project ID');
  */
@@ -460,7 +453,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * Reduziert Funktionsaufrufe
- *
  * @example
  * window.addEventListener('resize', adventure.ReduceFunctionCalls.throttle(() => {...}));
  */
@@ -473,11 +465,11 @@ class ReduceFunctionCalls {
      * @returns {Function}
      * @see https://codeburst.io/throttling-and-debouncing-in-javascript-b01cad5c8edf
      */
-    static throttle(callback, delay = 250, scope = this, ...args) {
+    static throttle(callback, delay = 250, scope = this) {
         let timeout;
         let lastRan;
 
-        return () => {
+        return (...args) => {
             if (!lastRan) {
                 callback.apply(scope, args);
                 lastRan = Date.now();
@@ -502,10 +494,10 @@ class ReduceFunctionCalls {
      * @returns {Function}
      * @see https://davidwalsh.name/javascript-debounce-function
      */
-    static debounce(callback, delay = 250, scope = this, ...args) {
+    static debounce(callback, delay = 250, scope = this) {
         let timeout;
 
-        return () => {
+        return (...args) => {
             const debouncedCallback = () => {
                 timeout = null;
 
@@ -533,7 +525,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**
  * DOM-Zugriffe, die nicht mit CSS möglich sind
- *
  * @example
  * document.querySelector('button').addEventListener('click', (event) => {
  *     const siblings = adventure.Selectors.siblings(event.target);
@@ -600,14 +591,14 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      */
     init() {
         this.openTriggers.forEach((trigger) => {
-            trigger.addEventListener('click', (event) => {
+            this.on(trigger, 'click', (event) => {
                 event.preventDefault();
                 this.open();
             });
         });
 
         if (this.closeButton !== null) {
-            this.closeButton.addEventListener('click', this.close.bind(this));
+            this.on(this.closeButton, 'click', this.close.bind(this));
         }
     }
 
@@ -635,6 +626,7 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      * Startet die Öffnen-Animation des Dialog.
      * Überschreibe diese Methode, wenn andere Öffnen-Animation gewünscht ist.
      * @function animateIn
+     * @returns {Animation}
      * @public
      */
     animateIn() {
@@ -657,6 +649,28 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      */
     close() {
         this.options.el.close();
+    }
+
+    /**
+     *
+     * @function destroy
+     * @fires Dialog#beforeDestroy
+     * @fires Dialog#afterDestroy
+     * @public
+     */
+    destroy() {
+        /**
+         * @event Dialog#beforeDestroy
+         */
+        this.emitEvent('beforeDestroy');
+
+        this.close();
+        this.offAll();
+
+        /**
+         * @event Dialog#afterDestroy
+         */
+        this.emitEvent('afterDestroy');
     }
 }
 
@@ -719,6 +733,8 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
@@ -730,5 +746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var __webpack_exports__Dialog = __webpack_exports__.Dialog;
+})();
+
+const __webpack_exports__Dialog = __webpack_exports__.Dialog;
 export { __webpack_exports__Dialog as Dialog };
