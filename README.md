@@ -59,6 +59,28 @@ dialog {
 }
 ```
 
+The `base` mixin exposes its paddings as custom properties, so they can be changed per breakpoint (or for a single
+dialog) without calling the mixin again.
+
+| Custom property               | Default                       | Description                          |
+|-------------------------------|-------------------------------|--------------------------------------|
+| `--dialog-padding-horizontal` | value of `padding.horizontal` | Left and right padding of the dialog |
+| `--dialog-padding-vertical`   | value of `padding.vertical`   | Top and bottom padding of the dialog |
+
+```scss
+dialog {
+    @include dialog.base();
+    @include dialog.clone-modal-style();
+
+    @include scss-utilities.breakpoint("medium") {
+        --dialog-padding-horizontal: #{scss-utilities.rem-calc(40px)};
+    }
+}
+```
+
+`max.width` and `max.height` are calculated from these custom properties, so the maximum size stays in sync with an
+overwritten padding.
+
 ### JavaScript
 
 ```js
