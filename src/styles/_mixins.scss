@@ -7,15 +7,17 @@
         style: none;
     }
     padding: {
-        top: config.get("padding", "vertical");
-        right: config.get("padding", "horizontal");
-        bottom: config.get("padding", "vertical");
-        left: config.get("padding", "horizontal");
+        block: config.get("padding", "vertical");
+        inline: config.get("padding", "horizontal");
     }
     margin: auto;
     max: {
-        width: calc(#{config.get("max", "width")} - #{config.get("padding", "horizontal") * 2});
-        height: calc(#{config.get("max", "height")} - #{config.get("padding", "vertical") * 2});
+        inline: {
+            size: calc(#{config.get("max", "width")} - #{config.get("padding", "horizontal") * 2});
+        }
+        block: {
+            size: calc(#{config.get("max", "height")} - #{config.get("padding", "vertical") * 2});
+        }
     }
     z: {
         index: $z-index;
@@ -29,8 +31,8 @@
         position: fixed;
         inset: 0;
         overflow: {
-            x: hidden;
-            y: auto;
+            inline: hidden;
+            block: auto;
         }
     }
 }
