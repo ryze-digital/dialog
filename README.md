@@ -36,15 +36,17 @@ Use the provided `configure` mixin to define your dialog defaults.
 <details>
 <summary>List of available configure options</summary>
 
-| Option             | Type   | Default                         | Description                          |
-|--------------------|--------|---------------------------------|--------------------------------------|
-| padding            | Map    |                                 |                                      |
-| padding.horizontal | Number | `scss-utilities.rem-calc(20px)` | Left and right padding of the dialog |
-| padding.vertical   | Number | `scss-utilities.rem-calc(20px)` | Top and bottom padding of the dialog |
-| max                | Map    |                                 |                                      |
-| max.width          | Number | `95ch`                          |                                      |
-| max.height         | Number | `100%`                          |                                      |
-| z-index            | Number | `null`                          |                                      |
+| Option             | Type   | Default                         | Description                                                               |
+|--------------------|--------|---------------------------------|---------------------------------------------------------------------------|
+| padding            | Map    |                                 |                                                                           |
+| padding.horizontal | Number | `scss-utilities.rem-calc(20px)` | Inline padding of the dialog (left and right in horizontal writing modes) |
+| padding.vertical   | Number | `scss-utilities.rem-calc(20px)` | Block padding of the dialog (top and bottom in horizontal writing modes)  |
+| max                | Map    |                                 |                                                                           |
+| max.width          | Number | `95ch`                          | Maximum inline size of the dialog                                         |
+| max.height         | Number | `100%`                          | Maximum block size of the dialog                                          |
+| z-index            | Number | `null`                          |                                                                           |
+
+All styles are written with logical properties, so the dialog adapts to the document's `writing-mode` and `direction`.
 
 Check out [the actual configure mixin](src/styles/_config.scss) for better understanding.
 </details>
