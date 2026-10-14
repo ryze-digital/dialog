@@ -3,19 +3,22 @@
 /// Fügt für die Funktion benötigte Stile hinzu
 /// @param {Number} $z-index [config.get("z-index")]
 @mixin base($z-index: config.get("z-index")) {
+    --dialog-padding-horizontal: #{config.get("padding", "horizontal")};
+    --dialog-padding-vertical: #{config.get("padding", "vertical")};
+
     border: {
         style: none;
     }
     padding: {
-        top: config.get("padding", "vertical");
-        right: config.get("padding", "horizontal");
-        bottom: config.get("padding", "vertical");
-        left: config.get("padding", "horizontal");
+        top: var(--dialog-padding-vertical);
+        right: var(--dialog-padding-horizontal);
+        bottom: var(--dialog-padding-vertical);
+        left: var(--dialog-padding-horizontal);
     }
     margin: auto;
     max: {
-        width: calc(#{config.get("max", "width")} - #{config.get("padding", "horizontal") * 2});
-        height: calc(#{config.get("max", "height")} - #{config.get("padding", "vertical") * 2});
+        width: calc(#{config.get("max", "width")} - var(--dialog-padding-horizontal) * 2);
+        height: calc(#{config.get("max", "height")} - var(--dialog-padding-vertical) * 2);
     }
     z: {
         index: $z-index;
