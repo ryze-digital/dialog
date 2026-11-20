@@ -569,19 +569,22 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      * @param {boolean} [options.modal]
      */
     constructor(options = {}) {
-        const el = document.querySelector('[data-dialog]');
+        const el = document.querySelector("[data-dialog]");
 
-        if (el.hasAttribute('open')) {
+        if (el.hasAttribute("open")) {
             options.modal = false;
         }
 
-        super({
-            el,
-            modal: true
-        }, options);
+        super(
+            {
+                el,
+                modal: true,
+            },
+            options,
+        );
 
         this.openTriggers = document.querySelectorAll(`[data-open-dialog="${this.options.el.id}"]`);
-        this.closeButton = this.options.el.querySelector('[data-close-dialog]');
+        this.closeButton = this.options.el.querySelector("[data-close-dialog]");
     }
 
     /**
@@ -591,14 +594,14 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      */
     init() {
         this.openTriggers.forEach((trigger) => {
-            this.on(trigger, 'click', (event) => {
+            this.on(trigger, "click", (event) => {
                 event.preventDefault();
                 this.open();
             });
         });
 
         if (this.closeButton !== null) {
-            this.on(this.closeButton, 'click', this.close.bind(this));
+            this.on(this.closeButton, "click", this.close.bind(this));
         }
     }
 
@@ -618,7 +621,7 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
         /**
          * @event Dialog#open
          */
-        this.animateIn().onfinish = this.emitEvent.bind(this, 'open');
+        this.animateIn().onfinish = this.emitEvent.bind(this, "open");
     }
 
     /**
@@ -630,16 +633,22 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      * @public
      */
     animateIn() {
-        return this.options.el.animate([{
-            opacity: 0,
-            scale: 0.8
-        }, {
-            opacity: 1,
-            scale: 1
-        }], {
-            duration: 300,
-            easing: 'cubic-bezier(0.6, 0, 0.4, 1)',
-        });
+        return this.options.el.animate(
+            [
+                {
+                    opacity: 0,
+                    scale: 0.8,
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                },
+            ],
+            {
+                duration: 300,
+                easing: "cubic-bezier(0.6, 0, 0.4, 1)",
+            },
+        );
     }
 
     /**
@@ -662,7 +671,7 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
         /**
          * @event Dialog#beforeDestroy
          */
-        this.emitEvent('beforeDestroy');
+        this.emitEvent("beforeDestroy");
 
         this.close();
         this.offAll();
@@ -670,9 +679,10 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
         /**
          * @event Dialog#afterDestroy
          */
-        this.emitEvent('afterDestroy');
+        this.emitEvent("afterDestroy");
     }
 }
+
 
 /***/ })
 
@@ -743,6 +753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Dialog: () => (/* reexport safe */ _src_scripts_Dialog_js__WEBPACK_IMPORTED_MODULE_0__.Dialog)
 /* harmony export */ });
 /* harmony import */ var _src_scripts_Dialog_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/scripts/Dialog.js */ "./src/scripts/Dialog.js");
+
 
 
 
