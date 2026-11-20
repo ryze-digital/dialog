@@ -1,28 +1,32 @@
 /******/ var __webpack_modules__ = ({
 
-/***/ "./node_modules/@ryze-digital/js-utilities/index.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/index.js"
 /*!**********************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/index.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Base: () => (/* reexport safe */ _src_Base_js__WEBPACK_IMPORTED_MODULE_0__.Base),
 /* harmony export */   BreakpointProvider: () => (/* reexport safe */ _src_BreakpointProvider_js__WEBPACK_IMPORTED_MODULE_1__.BreakpointProvider),
 /* harmony export */   DateToInputConverter: () => (/* reexport safe */ _src_DateToInputConverter_js__WEBPACK_IMPORTED_MODULE_2__.DateToInputConverter),
-/* harmony export */   DetectSticky: () => (/* reexport safe */ _src_DetectSticky_js__WEBPACK_IMPORTED_MODULE_3__.DetectSticky),
-/* harmony export */   FontVerification: () => (/* reexport safe */ _src_FontVerification_js__WEBPACK_IMPORTED_MODULE_4__.FontVerification),
-/* harmony export */   ReduceFunctionCalls: () => (/* reexport safe */ _src_ReduceFunctionCalls_js__WEBPACK_IMPORTED_MODULE_5__.ReduceFunctionCalls),
-/* harmony export */   Selectors: () => (/* reexport safe */ _src_Selectors_js__WEBPACK_IMPORTED_MODULE_6__.Selectors)
+/* harmony export */   DeepMerge: () => (/* reexport safe */ _src_DeepMerge_js__WEBPACK_IMPORTED_MODULE_3__.DeepMerge),
+/* harmony export */   DetectSticky: () => (/* reexport safe */ _src_DetectSticky_js__WEBPACK_IMPORTED_MODULE_4__.DetectSticky),
+/* harmony export */   FontVerification: () => (/* reexport safe */ _src_FontVerification_js__WEBPACK_IMPORTED_MODULE_5__.FontVerification),
+/* harmony export */   ReduceFunctionCalls: () => (/* reexport safe */ _src_ReduceFunctionCalls_js__WEBPACK_IMPORTED_MODULE_6__.ReduceFunctionCalls),
+/* harmony export */   Selectors: () => (/* reexport safe */ _src_Selectors_js__WEBPACK_IMPORTED_MODULE_7__.Selectors),
+/* harmony export */   Tracker: () => (/* reexport safe */ _src_Tracker_js__WEBPACK_IMPORTED_MODULE_8__.Tracker)
 /* harmony export */ });
 /* harmony import */ var _src_Base_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/Base.js */ "./node_modules/@ryze-digital/js-utilities/src/Base.js");
 /* harmony import */ var _src_BreakpointProvider_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/BreakpointProvider.js */ "./node_modules/@ryze-digital/js-utilities/src/BreakpointProvider.js");
 /* harmony import */ var _src_DateToInputConverter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./src/DateToInputConverter.js */ "./node_modules/@ryze-digital/js-utilities/src/DateToInputConverter.js");
-/* harmony import */ var _src_DetectSticky_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./src/DetectSticky.js */ "./node_modules/@ryze-digital/js-utilities/src/DetectSticky.js");
-/* harmony import */ var _src_FontVerification_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./src/FontVerification.js */ "./node_modules/@ryze-digital/js-utilities/src/FontVerification.js");
-/* harmony import */ var _src_ReduceFunctionCalls_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./src/ReduceFunctionCalls.js */ "./node_modules/@ryze-digital/js-utilities/src/ReduceFunctionCalls.js");
-/* harmony import */ var _src_Selectors_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./src/Selectors.js */ "./node_modules/@ryze-digital/js-utilities/src/Selectors.js");
+/* harmony import */ var _src_DeepMerge_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./src/DeepMerge.js */ "./node_modules/@ryze-digital/js-utilities/src/DeepMerge.js");
+/* harmony import */ var _src_DetectSticky_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./src/DetectSticky.js */ "./node_modules/@ryze-digital/js-utilities/src/DetectSticky.js");
+/* harmony import */ var _src_FontVerification_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./src/FontVerification.js */ "./node_modules/@ryze-digital/js-utilities/src/FontVerification.js");
+/* harmony import */ var _src_ReduceFunctionCalls_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./src/ReduceFunctionCalls.js */ "./node_modules/@ryze-digital/js-utilities/src/ReduceFunctionCalls.js");
+/* harmony import */ var _src_Selectors_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./src/Selectors.js */ "./node_modules/@ryze-digital/js-utilities/src/Selectors.js");
+/* harmony import */ var _src_Tracker_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./src/Tracker.js */ "./node_modules/@ryze-digital/js-utilities/src/Tracker.js");
 
 
 
@@ -33,18 +37,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/***/ }),
 
-/***/ "./node_modules/@ryze-digital/js-utilities/src/Base.js":
+
+
+/***/ },
+
+/***/ "./node_modules/@ryze-digital/js-utilities/src/Base.js"
 /*!*************************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/src/Base.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Base: () => (/* binding */ Base)
 /* harmony export */ });
+/* harmony import */ var _DeepMerge_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeepMerge.js */ "./node_modules/@ryze-digital/js-utilities/src/DeepMerge.js");
+
+
 /**
  * Basis-Klasse zur einheitlichen Verwendung von Events und Optionen.
  * Jede Adventure-Komponente leitet von dieser Basis-Klasse ab.
@@ -72,10 +82,7 @@ class Base {
      * @returns {object}
      */
     get options() {
-        return {
-            ...this._defaultOptions,
-            ...this._options
-        };
+        return _DeepMerge_js__WEBPACK_IMPORTED_MODULE_0__.DeepMerge.merge(this._defaultOptions, this._options);
     }
 
     /**
@@ -200,13 +207,13 @@ class Base {
     }
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@ryze-digital/js-utilities/src/BreakpointProvider.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/src/BreakpointProvider.js"
 /*!***************************************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/src/BreakpointProvider.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -263,13 +270,13 @@ class BreakpointProvider {
     }
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@ryze-digital/js-utilities/src/DateToInputConverter.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/src/DateToInputConverter.js"
 /*!*****************************************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/src/DateToInputConverter.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -336,13 +343,198 @@ class DateToInputConverter {
     }
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@ryze-digital/js-utilities/src/DetectSticky.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/src/DeepMerge.js"
+/*!******************************************************************!*\
+  !*** ./node_modules/@ryze-digital/js-utilities/src/DeepMerge.js ***!
+  \******************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DeepMerge: () => (/* binding */ DeepMerge)
+/* harmony export */ });
+class DeepMerge {
+    /**
+     * @private
+     * @param {*} value
+     * @returns {boolean}
+     */
+    static _isPlainObject(value) {
+        if (value === null || typeof value !== 'object') {
+            return false;
+        }
+
+        const proto = Object.getPrototypeOf(value);
+
+        return proto === Object.prototype || proto === null;
+    }
+
+    /**
+     * @private
+     * @param {string} key
+     * @returns {boolean}
+     */
+    static _isUnsafeKey(key) {
+        return key === '__proto__' || key === 'constructor' || key === 'prototype';
+    }
+
+    /**
+     * @param {*} value
+     * @returns {*}
+     */
+
+    /**
+     * @private
+     * @param {object} target
+     * @param {string} key
+     * @param {*} value
+     * @param {boolean} deep
+     */
+    static _assign(target, key, value, deep) {
+        if (this._isUnsafeKey(key)) {
+            return;
+        }
+
+        if (deep) {
+            const src = target[key];
+
+            if (Array.isArray(value)) {
+                const clone = Array.isArray(src) ? src : [];
+
+                target[key] = this._mergeArray(clone, value, deep);
+
+                return;
+            }
+
+            if (this._isPlainObject(value)) {
+                const clone = this._isPlainObject(src) ? src : {};
+
+                target[key] = this._mergeObject(clone, value, deep);
+
+                return;
+            }
+        }
+
+        target[key] = value;
+    }
+
+    /**
+     * @private
+     * @param {Array} target
+     * @param {Array} source
+     * @param {boolean} deep
+     * @returns {Array}
+     */
+    static _mergeArray(target, source, deep) {
+        // If not deep, simple shallow concat copy
+        if (!deep) {
+            return [...target, ...source];
+        }
+
+        const result = target.slice();
+
+        source.forEach((item, index) => {
+            const existing = result[index];
+
+            if (Array.isArray(item)) {
+                const base = Array.isArray(existing) ? existing : [];
+
+                result[index] = this._mergeArray(base, item, true);
+            } else if (this._isPlainObject(item)) {
+                const base = this._isPlainObject(existing) ? existing : {};
+
+                result[index] = this._mergeObject(base, item, true);
+            } else if (index >= result.length) {
+                // For primitives or non-plain objects, push if index exceeds length, otherwise replace
+                result.push(item);
+            } else {
+                result[index] = item;
+            }
+        });
+
+        return result;
+    }
+
+    /**
+     * @private
+     * @param {object} target
+     * @param {object} source
+     * @param {boolean} deep
+     * @returns {object}
+     */
+    static _mergeObject(target, source, deep) {
+        Object.keys(source).forEach((key) => {
+            this._assign(target, key, source[key], deep);
+        });
+
+        return target;
+    }
+
+    /**
+     * @param {...*} args
+     * @returns {object}
+     */
+    static merge(...args) {
+        let deep = true;
+        let target;
+        let sources;
+
+        if (typeof args[0] === 'boolean') {
+            [deep, target, ...sources] = args;
+        } else {
+            [target, ...sources] = args;
+        }
+
+        if (!this._isPlainObject(target) && !Array.isArray(target)) {
+            // Create a plain object as default target when invalid
+            target = {};
+        }
+
+        sources.forEach((source) => {
+            if (source === null || source === undefined) {
+                return;
+            }
+
+            if (Array.isArray(source)) {
+                if (!Array.isArray(target)) {
+                    // If target is not an array, convert it to empty array for array merging
+                    target = [];
+                }
+
+                target = this._mergeArray(target, source, deep);
+
+                return;
+            }
+
+            if (this._isPlainObject(source)) {
+                if (Array.isArray(target)) {
+                    // If target is array and source is object, convert target to object
+                    target = {};
+                }
+
+                target = this._mergeObject(target, source, deep);
+
+                return;
+            }
+
+            // Non-plain objects/functions: assign directly by creating a shallow copy property if possible
+            // Since we don't have a key here, skip — merge handles only objects/arrays as sources
+        });
+
+        return target;
+    }
+}
+
+
+/***/ },
+
+/***/ "./node_modules/@ryze-digital/js-utilities/src/DetectSticky.js"
 /*!*********************************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/src/DetectSticky.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -389,13 +581,13 @@ class DetectSticky {
     }
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@ryze-digital/js-utilities/src/FontVerification.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/src/FontVerification.js"
 /*!*************************************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/src/FontVerification.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -439,13 +631,13 @@ class FontVerification {
     }
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@ryze-digital/js-utilities/src/ReduceFunctionCalls.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/src/ReduceFunctionCalls.js"
 /*!****************************************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/src/ReduceFunctionCalls.js ***!
   \****************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -461,7 +653,6 @@ class ReduceFunctionCalls {
      * @param {Function} callback
      * @param {number} delay
      * @param {object} scope
-     * @param {Array} args
      * @returns {Function}
      * @see https://codeburst.io/throttling-and-debouncing-in-javascript-b01cad5c8edf
      */
@@ -490,7 +681,6 @@ class ReduceFunctionCalls {
      * @param {Function} callback
      * @param {number} delay
      * @param {object} scope
-     * @param {Array} args
      * @returns {Function}
      * @see https://davidwalsh.name/javascript-debounce-function
      */
@@ -511,13 +701,13 @@ class ReduceFunctionCalls {
     }
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./node_modules/@ryze-digital/js-utilities/src/Selectors.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/src/Selectors.js"
 /*!******************************************************************!*\
   !*** ./node_modules/@ryze-digital/js-utilities/src/Selectors.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -543,13 +733,79 @@ class Selectors {
     }
 }
 
-/***/ }),
+/***/ },
 
-/***/ "./src/scripts/Dialog.js":
+/***/ "./node_modules/@ryze-digital/js-utilities/src/Tracker.js"
+/*!****************************************************************!*\
+  !*** ./node_modules/@ryze-digital/js-utilities/src/Tracker.js ***!
+  \****************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Tracker: () => (/* binding */ Tracker)
+/* harmony export */ });
+class Tracker {
+    /**
+     * @type {object}
+     */
+    #trackingProviderMapping = {
+        'matomo': '_paq',
+        'googleAnalytics': 'gtag'
+    };
+
+    /**
+     * @type {Array}
+     */
+    #trackingProvider = [];
+
+    constructor() {
+        this.#setTrackingProvider();
+
+        if (this.#trackingProvider.length === 0) {
+            console.warn('No tracking provider detected');
+        }
+    }
+
+    /**
+     * @param {string} category
+     * @param {string} action
+     * @param {string} name
+     * @param {number} value
+     */
+    track(category, action, name, value) {
+        this.#trackingProvider.forEach((trackingProvider) => {
+            switch (trackingProvider) {
+                case 'matomo':
+                    window[this.#trackingProviderMapping[trackingProvider]].push(['trackEvent', category, action, name, value]);
+                    break;
+                case 'googleAnalytics':
+                    window[this.#trackingProviderMapping[trackingProvider]]('event', action, {
+                        event_category: category,
+                        event_label: name,
+                        value: value
+                    });
+                    break;
+            }
+        });
+    }
+
+    #setTrackingProvider() {
+        Object.keys(this.#trackingProviderMapping).forEach((trackingProvider) => {
+            if (typeof window[this.#trackingProviderMapping[trackingProvider]] !== 'undefined') {
+                this.#trackingProvider.push(trackingProvider);
+            }
+        });
+    }
+}
+
+/***/ },
+
+/***/ "./src/scripts/Dialog.js"
 /*!*******************************!*\
   !*** ./src/scripts/Dialog.js ***!
   \*******************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -569,19 +825,22 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      * @param {boolean} [options.modal]
      */
     constructor(options = {}) {
-        const el = document.querySelector('[data-dialog]');
+        const el = document.querySelector("[data-dialog]");
 
-        if (el.hasAttribute('open')) {
+        if (el.hasAttribute("open")) {
             options.modal = false;
         }
 
-        super({
-            el,
-            modal: true
-        }, options);
+        super(
+            {
+                el,
+                modal: true,
+            },
+            options,
+        );
 
         this.openTriggers = document.querySelectorAll(`[data-open-dialog="${this.options.el.id}"]`);
-        this.closeButton = this.options.el.querySelector('[data-close-dialog]');
+        this.closeButton = this.options.el.querySelector("[data-close-dialog]");
     }
 
     /**
@@ -591,14 +850,14 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      */
     init() {
         this.openTriggers.forEach((trigger) => {
-            this.on(trigger, 'click', (event) => {
+            this.on(trigger, "click", (event) => {
                 event.preventDefault();
                 this.open();
             });
         });
 
         if (this.closeButton !== null) {
-            this.on(this.closeButton, 'click', this.close.bind(this));
+            this.on(this.closeButton, "click", this.close.bind(this));
         }
     }
 
@@ -618,7 +877,7 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
         /**
          * @event Dialog#open
          */
-        this.animateIn().onfinish = this.emitEvent.bind(this, 'open');
+        this.animateIn().onfinish = this.emitEvent.bind(this, "open");
     }
 
     /**
@@ -630,16 +889,22 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
      * @public
      */
     animateIn() {
-        return this.options.el.animate([{
-            opacity: 0,
-            scale: 0.8
-        }, {
-            opacity: 1,
-            scale: 1
-        }], {
-            duration: 300,
-            easing: 'cubic-bezier(0.6, 0, 0.4, 1)',
-        });
+        return this.options.el.animate(
+            [
+                {
+                    opacity: 0,
+                    scale: 0.8,
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                },
+            ],
+            {
+                duration: 300,
+                easing: "cubic-bezier(0.6, 0, 0.4, 1)",
+            },
+        );
     }
 
     /**
@@ -662,7 +927,7 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
         /**
          * @event Dialog#beforeDestroy
          */
-        this.emitEvent('beforeDestroy');
+        this.emitEvent("beforeDestroy");
 
         this.close();
         this.offAll();
@@ -670,32 +935,39 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
         /**
          * @event Dialog#afterDestroy
          */
-        this.emitEvent('afterDestroy');
+        this.emitEvent("afterDestroy");
     }
 }
 
-/***/ })
+
+/***/ }
 
 /******/ });
 /************************************************************************/
 /******/ // The module cache
-/******/ var __webpack_module_cache__ = {};
+/******/ const __webpack_module_cache__ = {};
 /******/ 
 /******/ // The require function
 /******/ function __webpack_require__(moduleId) {
 /******/ 	// Check if module is in cache
-/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 	const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 	if (cachedModule !== undefined) {
 /******/ 		return cachedModule.exports;
 /******/ 	}
 /******/ 	// Create a new module (and put it into the cache)
-/******/ 	var module = __webpack_module_cache__[moduleId] = {
+/******/ 	const module = __webpack_module_cache__[moduleId] = {
 /******/ 		// no module.id needed
 /******/ 		// no module.loaded needed
 /******/ 		exports: {}
 /******/ 	};
 /******/ 
 /******/ 	// Execute the module function
+/******/ 	if (!(moduleId in __webpack_modules__)) {
+/******/ 		delete __webpack_module_cache__[moduleId];
+/******/ 		const e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 		e.code = 'MODULE_NOT_FOUND';
+/******/ 		throw e;
+/******/ 	}
 /******/ 	__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 
 /******/ 	// Return the exports of the module
@@ -704,35 +976,26 @@ class Dialog extends _ryze_digital_js_utilities__WEBPACK_IMPORTED_MODULE_0__.Bas
 /******/ 
 /************************************************************************/
 /******/ /* webpack/runtime/define property getters */
-/******/ (() => {
-/******/ 	// define getter functions for harmony exports
-/******/ 	__webpack_require__.d = (exports, definition) => {
-/******/ 		for(var key in definition) {
-/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 			}
+/******/ // define getter/value functions for harmony exports
+/******/ __webpack_require__.d = (exports, definition) => {
+/******/ 	for(var key in definition) {
+/******/ 		if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 			Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 		}
-/******/ 	};
-/******/ })();
+/******/ 	}
+/******/ };
 /******/ 
 /******/ /* webpack/runtime/hasOwnProperty shorthand */
-/******/ (() => {
-/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ })();
+/******/ __webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop));
 /******/ 
 /******/ /* webpack/runtime/make namespace object */
-/******/ (() => {
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = (exports) => {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/ })();
+/******/ // define __esModule on exports
+/******/ __webpack_require__.r = (exports) => {
+/******/ 	Object.defineProperties(exports, { [Symbol.toStringTag]: { value: 'Module' }, __esModule: { value: true } });
+/******/ };
 /******/ 
 /************************************************************************/
-var __webpack_exports__ = {};
+let __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
 /*!******************!*\
@@ -743,6 +1006,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Dialog: () => (/* reexport safe */ _src_scripts_Dialog_js__WEBPACK_IMPORTED_MODULE_0__.Dialog)
 /* harmony export */ });
 /* harmony import */ var _src_scripts_Dialog_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/scripts/Dialog.js */ "./src/scripts/Dialog.js");
+
 
 
 
