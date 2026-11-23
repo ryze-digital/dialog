@@ -1,14 +1,12 @@
 dialog {
-  --dialog-padding-horizontal: 1.25rem;
-  --dialog-padding-vertical: 1.25rem;
+  --dialog-padding-inline: 1.25rem;
+  --dialog-padding-block: 1.25rem;
   border-style: none;
-  padding-top: var(--dialog-padding-vertical);
-  padding-right: var(--dialog-padding-horizontal);
-  padding-bottom: var(--dialog-padding-vertical);
-  padding-left: var(--dialog-padding-horizontal);
+  padding-block: var(--dialog-padding-block);
+  padding-inline: var(--dialog-padding-inline);
   margin: auto;
-  max-width: calc(95ch - var(--dialog-padding-horizontal) * 2);
-  max-height: calc(100% - var(--dialog-padding-vertical) * 2);
+  max-inline-size: calc(95ch - var(--dialog-padding-inline) * 2);
+  max-block-size: calc(100% - var(--dialog-padding-block) * 2);
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 }
 dialog:not(:modal) {
@@ -16,4 +14,6 @@ dialog:not(:modal) {
   inset: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  overflow-inline: hidden;
+  overflow-block: auto;
 }
