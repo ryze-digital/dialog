@@ -1,4 +1,4 @@
-import { Base } from '@ryze-digital/js-utilities';
+import { Base } from "@ryze-digital/js-utilities";
 
 /**
  * Erweitert das dialog-Element um Animationen und Buttons zum Öffnen und Schließen.
@@ -11,19 +11,22 @@ export class Dialog extends Base {
      * @param {boolean} [options.modal]
      */
     constructor(options = {}) {
-        const el = document.querySelector('[data-dialog]');
+        const el = document.querySelector("[data-dialog]");
 
-        if (el.hasAttribute('open')) {
+        if (el.hasAttribute("open")) {
             options.modal = false;
         }
 
-        super({
-            el,
-            modal: true
-        }, options);
+        super(
+            {
+                el,
+                modal: true,
+            },
+            options,
+        );
 
         this.openTriggers = document.querySelectorAll(`[data-open-dialog="${this.options.el.id}"]`);
-        this.closeButton = this.options.el.querySelector('[data-close-dialog]');
+        this.closeButton = this.options.el.querySelector("[data-close-dialog]");
     }
 
     /**
@@ -33,14 +36,14 @@ export class Dialog extends Base {
      */
     init() {
         this.openTriggers.forEach((trigger) => {
-            this.on(trigger, 'click', (event) => {
+            this.on(trigger, "click", (event) => {
                 event.preventDefault();
                 this.open();
             });
         });
 
         if (this.closeButton !== null) {
-            this.on(this.closeButton, 'click', this.close.bind(this));
+            this.on(this.closeButton, "click", this.close.bind(this));
         }
     }
 
@@ -60,7 +63,7 @@ export class Dialog extends Base {
         /**
          * @event Dialog#open
          */
-        this.animateIn().onfinish = this.emitEvent.bind(this, 'open');
+        this.animateIn().onfinish = this.emitEvent.bind(this, "open");
     }
 
     /**
@@ -72,16 +75,22 @@ export class Dialog extends Base {
      * @public
      */
     animateIn() {
-        return this.options.el.animate([{
-            opacity: 0,
-            scale: 0.8
-        }, {
-            opacity: 1,
-            scale: 1
-        }], {
-            duration: 300,
-            easing: 'cubic-bezier(0.6, 0, 0.4, 1)',
-        });
+        return this.options.el.animate(
+            [
+                {
+                    opacity: 0,
+                    scale: 0.8,
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                },
+            ],
+            {
+                duration: 300,
+                easing: "cubic-bezier(0.6, 0, 0.4, 1)",
+            },
+        );
     }
 
     /**
@@ -104,7 +113,7 @@ export class Dialog extends Base {
         /**
          * @event Dialog#beforeDestroy
          */
-        this.emitEvent('beforeDestroy');
+        this.emitEvent("beforeDestroy");
 
         this.close();
         this.offAll();
@@ -112,6 +121,6 @@ export class Dialog extends Base {
         /**
          * @event Dialog#afterDestroy
          */
-        this.emitEvent('afterDestroy');
+        this.emitEvent("afterDestroy");
     }
 }
