@@ -1,5 +1,3 @@
-import {Dialog} from "./src/scripts/Dialog.js";
+import { Dialog } from "./src/scripts/Dialog.js";
 
-export {
-    Dialog
-};
+export { Dialog };
