@@ -66,8 +66,8 @@ dialog) without calling the mixin again.
 
 | Custom property           | Default                       | Description                                                               |
 |---------------------------|-------------------------------|---------------------------------------------------------------------------|
-| `--dialog-padding-inline` | value of `padding.horizontal` | Inline padding of the dialog (left and right in horizontal writing modes) |
-| `--dialog-padding-block`  | value of `padding.vertical`   | Block padding of the dialog (top and bottom in horizontal writing modes)  |
+| `--dialog-padding-inline` | Value of `padding.horizontal` | Inline padding of the dialog (left and right in horizontal writing modes) |
+| `--dialog-padding-block`  | Value of `padding.vertical`   | Block padding of the dialog (top and bottom in horizontal writing modes)  |
 
 ```scss
 dialog {
