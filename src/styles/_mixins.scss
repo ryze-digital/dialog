@@ -3,19 +3,24 @@
 /// Fügt für die Funktion benötigte Stile hinzu
 /// @param {Number} $z-index [config.get("z-index")]
 @mixin base($z-index: config.get("z-index")) {
+    --dialog-padding-inline: #{config.get("padding", "horizontal")};
+    --dialog-padding-block: #{config.get("padding", "vertical")};
+
     border: {
         style: none;
     }
     padding: {
-        top: config.get("padding", "vertical");
-        right: config.get("padding", "horizontal");
-        bottom: config.get("padding", "vertical");
-        left: config.get("padding", "horizontal");
+        block: var(--dialog-padding-block);
+        inline: var(--dialog-padding-inline);
     }
     margin: auto;
     max: {
-        width: calc(#{config.get("max", "width")} - #{config.get("padding", "horizontal") * 2});
-        height: calc(#{config.get("max", "height")} - #{config.get("padding", "vertical") * 2});
+        inline: {
+            size: calc(#{config.get("max", "width")} - var(--dialog-padding-inline) * 2);
+        }
+        block: {
+            size: calc(#{config.get("max", "height")} - var(--dialog-padding-block) * 2);
+        }
     }
     z: {
         index: $z-index;
@@ -28,9 +33,13 @@
     &:not(:modal) {
         position: fixed;
         inset: 0;
+
+        // Physische Werte als Fallback für Browser ohne Support für overflow-inline/-block
         overflow: {
             x: hidden;
             y: auto;
+            inline: hidden;
+            block: auto;
         }
     }
 }
